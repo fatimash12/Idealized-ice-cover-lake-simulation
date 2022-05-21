@@ -16,8 +16,8 @@ The Rossby number is defined as (Gill 1982):
 Here, f is the Coriolis frequency, which increases with latitude, and U and L are the characteristic velocity and length scales of the flow, respectively.
 *see:C. L. Ramon et al., 'Bathymetry and latitude modify lake warming under ice,' Hydrol. Earth Syst. Sci., 25,1813-1825,2021.*
 
-**The importance of Earth’s rotation for horizontal flows can be parameterized with the Rossby number**
- Earth’s rotation affects horizontal flows when Ro <1
+**The importance of Earth’s rotation for horizontal flows can be parameterized with the Rossby number:**
+Earth’s rotation affects horizontal flows when Ro <1
 For the downslope gravity currents, the scales U and L correspond to the cross-shore velocity and the distance from the shore to the center of the lake basin, respectively. 
 Gravity currents triggered by horizontal convection are usually “slow” (U of O (cm s−1 ), Fer et al., 2002; Monismith et al., 1990; Wells and Sherman, 2001), so their Rossby numbers are usually less than 1. 
 
@@ -41,11 +41,7 @@ The lake water will be initially at rest and linearly stratified, with T = 0 ◦
 
 ROMS is a free-surface, terrain-following, primitive equations ocean model widely used by the scientific community for a diverse range
 of applications (e.g., Haidvogel et al., 2000; Marchesiello et al., 2003; Peliz et al., 2003; Di Lorenzo, 2003; Dinniman et al.,
-2003; Budgell, 2005; Warner et al., 2005a, b; Wilkin et al., 2005).There are:
-Wide range of advection schemes: (e.g. 3rd-order upstream-biased, 4th-order)
-Wide range of open boundary conditions: (e.g. Radiation, clamped, nudged)
-Wide range of vertical mixing schemes (k-epsilon, k-omega, MY2.5, KPP, GLS)
-Wide Range of realistic Applications and test cases (Haidvogel et al., 2000; Marchesiello et al., 2003; Peliz et al., 2003; Di Lorenzo,
-2003; Dinniman et al., 2003; Budgell, 2005; Warner et al., 2005a, b; Wilkin et al., 2005)
+2003; Budgell, 2005; Warner et al., 2005a, b; Wilkin et al., 2005).There are Wide range of advection schemes: (e.g. 3rd-order upstream-biased, 4th-order), Wide range of open boundary conditions: (e.g. Radiation, clamped, nudged), Wide range of vertical mixing schemes (k-epsilon, k-omega, MY2.5, KPP, GLS), Wide Range of realistic Applications and test cases (Haidvogel et al., 2000; Marchesiello et al., 2003; Peliz et al., 2003; Di Lorenzo, 2003; Dinniman et al., 2003; Budgell, 2005; Warner et al., 2005a, b; Wilkin et al., 2005)
+
 
 *see: https://www.myroms.org/wiki/Getting_Started, https://www.myroms.org/wiki/Git, and https://www.myroms.org/wiki/ROMS_git)*
