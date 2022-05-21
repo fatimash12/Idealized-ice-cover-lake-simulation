@@ -1,1 +1,0 @@
-# Idealized-ice-cover-lake-smulation
