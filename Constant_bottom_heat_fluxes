@@ -1,1 +1,13 @@
+The bottom heat flux can be put in one of the ANA_*
+I copy ROMS/Functionals/ana_btflux.h to my applications folder, edit that file, and add a section such as
+IF (itrc.eq.itemp) THEN
+DO j=JstrT,JendT
+DO i=IstrT,IendT
+btflux(i,j,itrc)=0.0_r8 <---- put some other value here
+END DO
+END DO
 
+I did some tests, so did a run without this first. then added some value, recompiled, and did a second run with tht btflux value. 
+diff betwwen the 2 simulations and see if the flux is correct.
+
+The first value is 3/4.18 e^6
