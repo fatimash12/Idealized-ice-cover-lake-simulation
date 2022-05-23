@@ -1,1 +1,61 @@
 all the header file info gather here
+
+**In first run**
+
+#define UV_ADV
+#define UV_COR
+#define NONLIN_EOS
+#define ANA_BTFLUX
+#define SALINITY
+#define SOLVE3D
+#define ANA_SMFLUX
+#define ANA_STFLUX
+#define ANA_SSFLUX
+#define ANA_BSFLUX
+#define ANA_SPFLUX
+
+
+Model problems in first ran: 
+Why is the maximum temperature in the run without heating much below 4 degC near the bottom? Or is it because not more contours are shown in the plot?
+Maybe use “pcolor” instead of “contourf”, or add more contours for checking the full range of temperatures. Conversely, in the case with heating, the 
+temperature in the shallow parts decreases below 0 degC. 
+That is curious, either an indication of numerical instability (probably in the vertical advection, this could also explain the decreasing bottom
+temperatures), or because there is a mix-up with the signs of the bottom heating and you are actually imposed a cooling. 
+Changing the sign on the forcing might help to find it out. If the heating is readily defined correctly, it would not be surprising if the downslope 
+flow of dense water imposes an instability in the vertical advection scheme that leads to unphysical temperature values. 
+We have seen this before in other applications and we will hopefully / probably be able to cure it by activating the parabolic splines reconstruction
+of vertical derivatives (using the “SPLINES_VDIFF” option in the header file).
+
+Note: 
+ROMS offers several choices for handling the vertical advection and diffusion of tracer properties. Having tested several of
+these options (not shown), the best choice for obtaining a plausible T-S evolution was given by using a conservative, parabolic
+splines reconstruction for vertical diffusion on active and passive tracers. Omitting this option leads to the development of
+non-physical tracer values in shallow and confined regions near the GL of the ice shelf cavity, typically identified by too
+high temperatures near the seafloor and too low temperatures near the ice base (when compared to the meltwater mixing (McDougall et al., 2014), 
+ambient water and pressure melting point constraints). Similar behavior has been observed in other contexts using ROMS in static, but more realistic 
+ice shelf cavity configurations, e.g. near the Foundation Ice Stream on Filchner-Ronne Ice Shelf (Daae et al., 2020), as well as in static and 
+time-evolving ice shelf cavity simulations using FVCOM (Zhou and Hattermann, 2020). Within FVCOM, the use of a positive definite MPDATA vertical
+advection scheme successfully suppresses the development of such non-physical tracer values, and our working hypothesis is that the large vertical
+gradients that are imposed by the meltwater forcing (and the resultant horizontal divergence in the upper part of the water column with its associated
+upwelling near the GL) tend to cause overshoots in the vertical advection-diffusion balance. The use of more conservative numerical schemes, 
+as is reported here, may be instructive for other studies, while further investigations might be needed for a more detailed understanding of the cause
+of these instabilities.
+
+
+*see: https://gmd.copernicus.org/preprints/gmd-2022-21/gmd-2022-21.pdf
+
+**In second run**
+
+#define UV_ADV
+#define UV_COR
+#define SPLINES_VDIFF
+#define SPLINES_VVISC
+#define NONLIN_EOS
+#define ANA_BTFLUX
+#define SALINITY
+#define SOLVE3D
+#define ANA_SMFLUX
+#define ANA_STFLUX
+#define ANA_SSFLUX
+#define ANA_BSFLUX
+#define ANA_SPFLUX
